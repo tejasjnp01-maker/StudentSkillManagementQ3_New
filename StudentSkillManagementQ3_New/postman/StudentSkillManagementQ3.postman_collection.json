@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Student Skill Management Q3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "studentId",
+      "value": "106"
+    }
+  ],
+  "item": [
+    {
+      "name": "1 - Add Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 106,\n  \"studentName\": \"Neha Sharma\",\n  \"email\": \"neha@gmail.com\",\n  \"courseName\": \"B.Tech CSE\",\n  \"programmingScore\": 90,\n  \"mathematicsScore\": 95,\n  \"technicalSkills\": [\n    \"Java\",\n    \"Python\",\n    \"Spring Boot\",\n    \"SQL\"\n  ]\n}"
+        },
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "2 - Get All Students",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "3 - Search By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "4 - Update Scores And Skills",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"programmingScore\": 95,\n  \"mathematicsScore\": 98,\n  \"technicalSkills\": [\n    \"Java\",\n    \"Spring Boot\",\n    \"MySQL\",\n    \"React\"\n  ]\n}"
+        },
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "5 - Delete Student",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "6 - Merit List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/students/merit-list"
+      }
+    }
+  ]
+}
